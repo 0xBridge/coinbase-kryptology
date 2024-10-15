@@ -10,9 +10,8 @@ import (
 	"crypto/elliptic"
 	"encoding/json"
 	"fmt"
+	"github.com/btcsuite/btcd/btcec/v2"
 	"math/big"
-
-	"github.com/btcsuite/btcd/btcec"
 
 	"github.com/coinbase/kryptology/internal"
 	"github.com/coinbase/kryptology/pkg/core"
