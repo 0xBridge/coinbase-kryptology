@@ -44,6 +44,11 @@ type RangeProofGenerators struct {
 	g, h, u curves.Point
 }
 
+// NewRangeProofGenerators initializes a new set of generators for a range proof
+func NewRangeProofGenerators(g, h, u curves.Point) RangeProofGenerators {
+	return RangeProofGenerators{g: g, h: h, u: u}
+}
+
 // NewRangeProver initializes a new prover
 // It uses the specified domain to generate generators for vectors of at most maxVectorLength
 // A prover can be used to construct range proofs for vectors of length less than or equal to maxVectorLength
