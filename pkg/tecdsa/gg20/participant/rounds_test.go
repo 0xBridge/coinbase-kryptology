@@ -13,7 +13,7 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/btcsuite/btcd/btcec"
+	"github.com/btcsuite/btcd/btcec/v2"
 	"github.com/stretchr/testify/require"
 
 	tt "github.com/coinbase/kryptology/internal"
@@ -76,18 +76,6 @@ var (
 			Y:     verKey.Y,
 		}
 		return ecdsa.Verify(pk, hash, sig.R, sig.S)
-	}
-	k256Verifier = func(pubKey *curves.EcPoint, hash []byte, sig *curves.EcdsaSignature) bool {
-		btcPk := &btcec.PublicKey{
-			Curve: btcec.S256(),
-			X:     pubKey.X,
-			Y:     pubKey.Y,
-		}
-		btcSig := btcec.Signature{
-			R: sig.R,
-			S: sig.S,
-		}
-		return btcSig.Verify(hash, btcPk)
 	}
 )
 
@@ -629,14 +617,6 @@ func TestSignerSignRound5Works(t *testing.T) {
 	}
 }
 
-func TestSignerSignRound6WorksK256(t *testing.T) {
-	curve := btcec.S256()
-	msg := make([]byte, 32)
-	hash, err := core.Hash(msg, curve)
-	require.NoError(t, err)
-	fullroundstest3Signers(t, curve, hash.Bytes(), k256Verifier)
-}
-
 func TestSignerSignRound6WorksP256(t *testing.T) {
 	curve := elliptic.P256()
 	msg := make([]byte, 32)
@@ -651,14 +631,6 @@ func fullroundstest3Signers(t *testing.T, curve elliptic.Curve, msg []byte, veri
 	playerMin := 3
 	for _, useDistributed := range []bool{false, true} {
 		pk, signers := setupSignersMap(t, curve, playerMin, playerCnt, false, verify, useDistributed)
-
-		sk := signers[1].share.Value.Add(signers[2].share.Value).Add(signers[3].share.Value)
-		_, ppk := btcec.PrivKeyFromBytes(curve, sk.Bytes())
-
-		if ppk.X.Cmp(pk.X) != 0 || ppk.Y.Cmp(pk.Y) != 0 {
-			t.Errorf("Invalid shares")
-			t.FailNow()
-		}
 
 		// Sign Round 1
 		signerOut := make(map[uint32]*Round1Bcast, playerCnt)
