@@ -3,6 +3,7 @@ package bulletproof
 import (
 	"github.com/gtank/merlin"
 	"github.com/pkg/errors"
+	"math"
 
 	"github.com/coinbase/kryptology/pkg/core/curves"
 )
@@ -44,6 +45,29 @@ func (verifier *RangeVerifier) Verify(proof *RangeProof, capV curves.Point, proo
 	if n > len(verifier.generators.G) {
 		return false, errors.New("ipp vector length must be less than maxVectorLength")
 	}
+
+	if proof.ipp == nil {
+		return false, errors.New("proof does not contain IPP")
+	}
+
+	if proof.ipp.capLs == nil {
+		return false, errors.New("proof does not contain IPP capLs")
+	}
+
+	if proof.ipp.capRs == nil {
+		return false, errors.New("proof does not contain IPP capRs")
+	}
+
+	if len(proof.ipp.capLs) != len(proof.ipp.capRs) {
+		return false, errors.New("ipp capLs and capRs must be same length")
+	}
+
+	// Log2(n) is the maximum size of the proof vectors
+	maxAbSize := int(math.Log2(float64(n)))
+	if len(proof.ipp.capLs) > maxAbSize || len(proof.ipp.capRs) > maxAbSize {
+		return false, errors.New("proof vectors are too large")
+	}
+
 	// In case where len(a) is less than number of generators precomputed by prover, trim to length
 	proofG := verifier.generators.G[0:n]
 	proofH := verifier.generators.H[0:n]
