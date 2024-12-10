@@ -112,10 +112,10 @@ func TestRangeVerifyFailsWithTooLargeVectors(t *testing.T) {
 	verified, err := verifier.Verify(proof, capV, proofGenerators, n, transcriptVerifier)
 	require.False(t, verified)
 	require.Error(t, err)
-	require.Equal(t, "proof vectors are too large", err.Error())
+	require.Equal(t, "ipp point arrays are too large", err.Error())
 }
 
-func TestRangeVerifyFailsWithVectorsOfDifSize(t *testing.T) {
+func TestRangeVerifyFailsWithVectorsOfDiffSize(t *testing.T) {
 	curve := curves.ED25519()
 	n := 128
 	prover, err := NewRangeProver(n, []byte("rangeDomain"), []byte("ippDomain"), *curve)

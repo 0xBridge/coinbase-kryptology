@@ -62,10 +62,10 @@ func (verifier *RangeVerifier) Verify(proof *RangeProof, capV curves.Point, proo
 		return false, errors.New("ipp capLs and capRs must be same length")
 	}
 
-	// Log2(n) is the maximum size of the proof vectors
-	maxAbSize := int(math.Log2(float64(n)))
-	if len(proof.ipp.capLs) > maxAbSize || len(proof.ipp.capRs) > maxAbSize {
-		return false, errors.New("proof vectors are too large")
+	// Log2(n) is the maximum size of the proof ipp vectors
+	maxIppPointsArraySize := int(math.Log2(float64(n)))
+	if len(proof.ipp.capLs) > maxIppPointsArraySize {
+		return false, errors.New("ipp point arrays are too large")
 	}
 
 	// In case where len(a) is less than number of generators precomputed by prover, trim to length
