@@ -6,11 +6,11 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/coinbase/kryptology/pkg/core/curves"
-	"github.com/coinbase/kryptology/pkg/core/protocol"
-	"github.com/coinbase/kryptology/pkg/ot/base/simplest"
-	"github.com/coinbase/kryptology/pkg/tecdsa/dkls/v1/dkg"
-	"github.com/coinbase/kryptology/pkg/tecdsa/dkls/v1/refresh"
+	"github.com/0xBridge/coinbase-kryptology/pkg/core/curves"
+	"github.com/0xBridge/coinbase-kryptology/pkg/core/protocol"
+	"github.com/0xBridge/coinbase-kryptology/pkg/ot/base/simplest"
+	"github.com/0xBridge/coinbase-kryptology/pkg/tecdsa/dkls/v1/dkg"
+	"github.com/0xBridge/coinbase-kryptology/pkg/tecdsa/dkls/v1/refresh"
 )
 
 func newRefreshProtocolMessage(payload []byte, round string, version uint) *protocol.Message {

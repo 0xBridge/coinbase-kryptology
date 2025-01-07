@@ -5,7 +5,7 @@ import (
 	"github.com/pkg/errors"
 	"math"
 
-	"github.com/coinbase/kryptology/pkg/core/curves"
+	"github.com/0xBridge/coinbase-kryptology/pkg/core/curves"
 )
 
 // RangeVerifier is the struct used to verify RangeProofs

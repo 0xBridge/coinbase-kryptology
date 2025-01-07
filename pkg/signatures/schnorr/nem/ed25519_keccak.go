@@ -28,7 +28,7 @@ import (
 	"filippo.io/edwards25519"
 	"golang.org/x/crypto/sha3"
 
-	"github.com/coinbase/kryptology/internal"
+	"github.com/0xBridge/coinbase-kryptology/internal"
 )
 
 const (

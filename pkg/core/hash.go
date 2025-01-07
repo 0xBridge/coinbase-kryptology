@@ -18,7 +18,7 @@ import (
 	"github.com/btcsuite/btcd/btcec/v2"
 	"golang.org/x/crypto/hkdf"
 
-	"github.com/coinbase/kryptology/internal"
+	"github.com/0xBridge/coinbase-kryptology/internal"
 )
 
 type HashField struct {

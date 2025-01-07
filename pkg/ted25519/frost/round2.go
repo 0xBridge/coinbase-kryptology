@@ -13,8 +13,8 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/coinbase/kryptology/internal"
-	"github.com/coinbase/kryptology/pkg/core/curves"
+	"github.com/0xBridge/coinbase-kryptology/internal"
+	"github.com/0xBridge/coinbase-kryptology/pkg/core/curves"
 )
 
 // Round2Bcast contains values that will be broadcast to other signers after completion of round 2.

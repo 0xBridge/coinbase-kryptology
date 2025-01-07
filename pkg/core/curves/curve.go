@@ -16,7 +16,7 @@ import (
 	"math/big"
 	"sync"
 
-	"github.com/coinbase/kryptology/pkg/core/curves/native/bls12381"
+	"github.com/0xBridge/coinbase-kryptology/pkg/core/curves/native/bls12381"
 )
 
 var (

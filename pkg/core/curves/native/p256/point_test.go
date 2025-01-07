@@ -6,10 +6,10 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/coinbase/kryptology/pkg/core/curves"
-	"github.com/coinbase/kryptology/pkg/core/curves/native"
-	"github.com/coinbase/kryptology/pkg/core/curves/native/p256"
-	"github.com/coinbase/kryptology/pkg/core/curves/native/p256/fp"
+	"github.com/0xBridge/coinbase-kryptology/pkg/core/curves"
+	"github.com/0xBridge/coinbase-kryptology/pkg/core/curves/native"
+	"github.com/0xBridge/coinbase-kryptology/pkg/core/curves/native/p256"
+	"github.com/0xBridge/coinbase-kryptology/pkg/core/curves/native/p256/fp"
 )
 
 func TestP256PointArithmetic_Double(t *testing.T) {

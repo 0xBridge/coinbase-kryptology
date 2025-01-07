@@ -10,10 +10,10 @@ import (
 	"flag"
 	"fmt"
 
-	"github.com/coinbase/kryptology/pkg/core/curves"
-	dkg "github.com/coinbase/kryptology/pkg/dkg/frost"
-	"github.com/coinbase/kryptology/pkg/sharing"
-	"github.com/coinbase/kryptology/pkg/ted25519/frost"
+	"github.com/0xBridge/coinbase-kryptology/pkg/core/curves"
+	dkg "github.com/0xBridge/coinbase-kryptology/pkg/dkg/frost"
+	"github.com/0xBridge/coinbase-kryptology/pkg/sharing"
+	"github.com/0xBridge/coinbase-kryptology/pkg/ted25519/frost"
 )
 
 const LIMIT = 5

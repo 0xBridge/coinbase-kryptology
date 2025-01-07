@@ -16,9 +16,9 @@ import (
 
 	"github.com/btcsuite/btcd/btcec/v2"
 
-	"github.com/coinbase/kryptology/pkg/core/curves"
-	dkg "github.com/coinbase/kryptology/pkg/dkg/gennaro"
-	"github.com/coinbase/kryptology/pkg/sharing/v1"
+	"github.com/0xBridge/coinbase-kryptology/pkg/core/curves"
+	dkg "github.com/0xBridge/coinbase-kryptology/pkg/dkg/gennaro"
+	"github.com/0xBridge/coinbase-kryptology/pkg/sharing/v1"
 )
 
 const LIMIT = 4

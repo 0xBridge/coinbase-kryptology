@@ -7,7 +7,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/coinbase/kryptology/pkg/core/curves/native"
+	"github.com/0xBridge/coinbase-kryptology/pkg/core/curves/native"
 )
 
 func TestG1IsOnCurve(t *testing.T) {

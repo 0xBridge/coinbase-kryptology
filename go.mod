@@ -1,4 +1,4 @@
-module github.com/coinbase/kryptology
+module github.com/0xBridge/coinbase-kryptology
 
 go 1.21
 

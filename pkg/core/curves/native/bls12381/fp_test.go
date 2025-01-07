@@ -14,7 +14,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/coinbase/kryptology/internal"
+	"github.com/0xBridge/coinbase-kryptology/internal"
 )
 
 func TestFpSetOne(t *testing.T) {
